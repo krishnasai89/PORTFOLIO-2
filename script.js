@@ -1,22 +1,16 @@
 // menubar
-let myMenuFunction=()=>{
-    var menuBth = document.getElementById("mynavMenu")
+let myMenuFunction = () => {
+  var menuBtn = document.getElementById("mynavMenu");
 
-    if (menuBth.className ==  "navMenu") {
-      menuBth.className = "responsive";
-    }
-    else{
-      menuBth.className = "nav-Menu";
-    }
+  if (menuBtn.className === "navbar-links") {
+      menuBtn.className += " active";
+  } else {
+      menuBtn.className = "navbar-links";
+  }
 };
 
-// darkmode
-const body = document.querySelector("body"),
-toggleSwitch = document.querySelector("toggle-switch");
-
-toggleSwitch.addEventListener("click",()=>{
-  body.classList.toggle("dark");
-})
+// Ensure the function is attached to an event listener
+document.getElementById("menuToggle").addEventListener("click", myMenuFunction);
 
 // typing effect
 var typingEffect = new Typed(".typedText",{
@@ -28,7 +22,7 @@ var typingEffect = new Typed(".typedText",{
   backDelay: 2000,
 });
 
-// scrool animation
+// scroll animation
 const sr = ScrollReveal({
   origin: 'top',
   distance: '80px',
@@ -37,7 +31,7 @@ const sr = ScrollReveal({
 });
 
 sr.reveal(".featured-name",{delay : 100});
-// sr.reveal(".text-info",{delay : 200});
+sr.reveal(".text-info",{delay : 200});
 sr.reveal(".text-btn",{delay : 200});
 sr.reveal(".socical-icons",{delay : 200});
 sr.reveal(".featured-image",{delay : 320});
@@ -70,10 +64,29 @@ srRight.reveal(".skill-box",{delay: 100})
 
 const sections = document.querySelectorAll(".section[id]")
 
-let scrollActive=()=>{
+let scrollActive = () => {
   const scrollY = window.scrollY;
 
-  sections.forEach((current)=>{
-    const sectionHeight = current.offsetHeight;
-  })
+  sections.forEach((current) => {
+    const sectionHeight = current.offsetHeight,
+      sectionTop = current.offsetTop - 50,
+      sectionId = current.offAttribute("id");
+    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+      document
+        .querySelector(".nav-menu a[href*=" + sectionId + "]")
+        .classList.add("active-link");
+    } else {
+      document
+        .querySelector(".nav-menu a[href*=" + sectionId + "]")
+        .classList.remove("active-link");
+    }
+  });
+};
+
+window.addEventListener("scroll",scrollActive)
+
+// dark mode
+function dark() {
+  var element = document.body;
+  element.classList.toggle("dark");
 }

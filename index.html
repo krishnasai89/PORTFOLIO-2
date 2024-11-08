@@ -37,13 +37,14 @@
             </div>
             <!-- Dark mode -->
             <div class="mode">
-                <div class="moon-sun" id="toggle-switch">
+                <div class="moon-sun" id="toggle-switch" onclick="dark()">
                     <i class="fa fa-moon" id="moon"></i>
                     <i class="fa fa-sun" id="sun"></i>
                 </div>
             </div>
             <div class="nav-menu-btn">
-                <i class="uil uil-bars" onclick="myMenuFunction()"></i>
+                <a href="javascript:void(0);" class="toggle-button" id="menuToggle"> &#9776;</a>
+                <!-- <i class="uil uil-bars" onclick="myMenuFunction()" id="menuToggle"></i> -->
             </div>
         </nav>
         <!-- main -->
@@ -57,7 +58,7 @@
                         <span class="tyedText"></span>
                     </div>
                     <div class="text-info">
-                        <p>I am Krishna Sai</p>
+                        <p>I am <span></span></p>
                     </div>
                     <div class="text-btn">
                         <button class="btn hire-btn"><a href="#contact">Hire Me</a></button>

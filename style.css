@@ -18,6 +18,8 @@
     --box-color: #fff;
     --nav-color:  #fafafa;
     --nav-icon: #000;
+    --nav-name:#8749f2;
+    --nav-name-shadow:rgb(191, 191, 191);
     --logo-color:#000;
 
     --text-color: #444444;
@@ -40,9 +42,11 @@ body.dark{
     --text-color: #fff;
 
     --nav-icon:#fff;
+    --nav-name: #16ddda;
+    --nav-name-shadow:#498892;
     --logo-color:#fff;
-    --icon-color:#8749f2;
-    --mode-color: #fff;
+    --icon-color:#fff;
+    --mode-color: #3c3b3b;
 }
 
 .container{
@@ -74,11 +78,12 @@ html{
 .nav-name{
     font-size: 30px;
     font-weight: 600;
-    color: var(--color-white);
-    text-shadow: 4px 6px 8px  rgb(191, 191, 191);
+    color: var(--nav-name);
+    text-shadow: 4px 6px 8px  var(--nav-name-shadow);
     text-transform: uppercase;
     font-family: "Delicious Handrawn";
 }
+
 .nav-menu,.nav-menu-list{
     display: flex;
     column-gap: -30px;
@@ -155,6 +160,10 @@ html{
 body.dark #moon{
     opacity: 0;
 }
+body.dark #sun{
+    opacity: 1;
+    color: var(--color-white);
+}
 
 /* wrapper */
 
@@ -210,7 +219,65 @@ body.dark #moon{
     font-size: 16px;
     margin-bottom: 30px;
     color: var(--text-color);
+    position: relative;
 }
+.text-info p{
+    position: relative;
+}
+.text-info p span{
+    position: relative;
+    font-weight: 800;
+}
+
+.text-info p span::before{
+    content: "Krishna Sai";
+    color: #8749f2;
+    animation: words 20s infinite;
+}
+
+@keyframes words{
+    0%,20%{
+        content: "Krishna Sai";
+    }
+    21%,40%{
+        content: "Software Developer";
+    }
+    41%,60%{
+        content: "Frontend Developer";
+    }
+    61%,80%{
+        content: "Fresher";
+    }
+    81%,100%{
+        content: "Python Developer";
+    }
+}
+
+/* .text-info p span::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--body-color);
+    border-left: 2px solid #8749f2;
+    right: -8px;
+    animation: textcursor 0.8s infinite, type stops(25) 5s infinite;
+}
+
+@keyframes textcursor { 
+    0% { border-left: 2px solid #8749f2; } 
+    50% { border-left: 2px solid transparent; } 
+    100% { border-left: 2px solid #8749f2; }
+}
+
+@keyframes typing{
+    10%,15%,30%,50%,70%,90%,95%{
+        width: 0;
+    }
+    5%,20%,40%,45%,60%,80%,85%,100%{
+        width: 100%;
+    }
+} */
 
 .text-btn{
     display: flex;
@@ -267,7 +334,9 @@ i{
     box-shadow: 0px 1px 5px 3px #8749f2;
     cursor: pointer;
 }
-
+.icon a{
+    color: var(--icon-color);
+}
 .icon-circle{
     position: absolute;
     transform: transform(-50%, -50%);
@@ -536,7 +605,9 @@ i{
     color: #8749f2;
     margin-bottom: 25px;
 }
-
+.project-box h3{
+    color: var(--text-color);
+}
 .project-box label{
     font-size: 15px;
     color: var(--text-color);
@@ -754,8 +825,8 @@ a{
     }
     .nav-menu {
         position: fixed;
-        top: 0;
         left: -100%;
+        top: 0;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -767,10 +838,18 @@ a{
         height: 450px;
         transition: 0.3s;
     }
+
     .nav-menu-list{
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        list-style: none;
+        margin-top: 90px;
+        background-color: #cfbcf0;
+        width: 100%;
+    }
+    .toggle-button{
+        display: block;
     }
     .featured-box{
         flex-direction: column;
@@ -824,6 +903,10 @@ a{
         align-items: center;
         margin-left: 60%;
     }
+    .moon-sun{
+        margin-right: 30px;
+        margin-left: -10px;
+    }
 }
 @media only  screen and (max-width: 540px) {
     .featured-name{
@@ -841,4 +924,19 @@ a{
     .mode{
         margin-left: 50%;
     }
+        .nav-menu {
+            position: relative;
+            left: -100%;
+            top: 0;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(250, 250, 250, 0.7);
+            backdrop-filter: blur(5px);
+            width: 300px;
+            border-radius: 0px 30px 0px 30px;
+            min-height: 450px;
+            height: 450px;
+            transition: 0.3s;
+        }
 }
