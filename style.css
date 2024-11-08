@@ -812,12 +812,12 @@ a{
 
 .loadername span:nth-child(1) {
     color: transparent;
-    -webkit-text-stroke: 0.3px rgb(0, 57, 244);
+    -webkit-text-stroke: 0.3px #8749f2;
 }
 
 .loadername span:nth-child(2) {
-    color: rgb(0, 4, 255);
-    -webkit-text-stroke: 1px rgb(17, 0, 255);
+    color: #8749f2;
+    -webkit-text-stroke: 1px #8749f2;
     animation: uiverse723 3s ease-in-out infinite;
 }
 
