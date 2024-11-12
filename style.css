@@ -375,22 +375,24 @@ i{
     display: flex;
     justify-content: right;
     align-items: center;
-    min-height: 80vh;
+    /* min-height: 80vh; */
     width: 100%;
+    margin-top: -70%;
+    margin-left: 150%;
 }
 
 .image{
     margin-top: 10%;
     width: 500px;
     height: 700px;
-    border-radius: 40% 40% 40% 40%;
+    /* border-radius: 40% 40% 40% 40%; */
     overflow: hidden;
     animation: imgFloat 5s ease-in-out infinite;
 }
 
 .image img{
     width: 500px;
-    height: 700px;
+    height: 600px;
     object-fit: cover;
 }
 
